@@ -14,6 +14,7 @@ function setup() {
 function draw() {
   background(0);
   translate(0, 0, 0);
+  orbitControl();
 
   // SUN
   push();
