@@ -1,42 +1,17 @@
-let n;
-function setup(){
-
-createCanvas(720,480);
-// initialize a new object with jitter class
-bug= new Jitter();
-
+function setup() {
+  createCanvas(950, 500, WEBGL);
+  img = loadImage("https://i.ibb.co/WgzR34B/8081-earthmap10k.jpg") ;
 }
 
-function draw(){
-
-    background(50,89,100);
-// display the object
-bug.display();
-// move the object
-bug.move();
-
-}
-
-// create a class called jitter
-class Jitter{
-
-    constructor(){
-    // x position, y position, diameter, speed
-    this.x= random(width);
-    this.y= random(height);
-    this.diameter= (10, 30);
-    this.speed= 1;
-
-    }
-
-display(){
-
-    ellipse(this.x,this.y,this.diameter,this.diameter);
-
-}
-
-move(){
-    this.x+=random(-this.speed,this.speed);
-
-}
+function draw() {
+  background(250);
+  translate(0, 0, 0);
+  push();
+  rotateZ(frameCount * 0.005);
+  rotateX(frameCount * 0.005);
+  rotateY(frameCount * 0.005);
+  texture(img); 
+  sphere(150);
+  pop();
+  strokeWeight(0);
 }
